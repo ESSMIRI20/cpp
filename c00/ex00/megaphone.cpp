@@ -6,13 +6,14 @@ using namespace std;
 int main(int ac, char **av)
 {
     int i;
-    int j;
+    size_t j;
 
-    if (ac < 2) {
+    if (ac < 2)
+    {
         cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
-        return 1;
+        return (1);
     }
-    for(i = 1;i < ac; i++)
+    for (i = 1; i < ac; i++)
     {
         for ( j = 0; j < strlen(av[i]); j++)
             cout << (char)toupper(av[i][j]);
@@ -20,5 +21,5 @@ int main(int ac, char **av)
             cout << " ";
     }
     cout << endl;
-    return 0;
+    return (0);
 }
