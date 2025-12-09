@@ -1,11 +1,11 @@
 NAME1 = fixed
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-FILES = megaphone.cpp
+FILES = main.cpp Fixed.cpp
 
-OBJCT = main.cpp Fixed.cpp
+OBJCT = main.o Fixed.o
 
 all: $(NAME1)
 

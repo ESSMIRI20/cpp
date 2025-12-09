@@ -7,7 +7,7 @@ Fixed::Fixed(){
 
 Fixed::Fixed(Fixed &f){
     std::cout << "Copy constructor called" << std::endl;
-    fixed_point = f.fixed_point;
+    *this = f;
 }
 
 Fixed::~Fixed(){
@@ -31,3 +31,5 @@ void Fixed::setRawBits(int const raw)
 {
     fixed_point = raw;
 }
+
+const int Fixed::fractional_bits = 8;
