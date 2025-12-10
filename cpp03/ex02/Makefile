@@ -1,11 +1,11 @@
-NAME1 = scavtrap
+NAME1 = fragtrap
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-FILES = main.cpp ClapTrap.cpp ScavTrap.cpp
+FILES = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
-OBJCT = main.o ClapTrap.o ScavTrap.o
+OBJCT = main.o ClapTrap.o ScavTrap.o FragTrap.o
 
 all: $(NAME1)
 
