@@ -26,7 +26,7 @@ int main()
     f.highFivesGuys();
 
     std::cout << "\n=== Copy Test ===" << std::endl;
-    FragTrap f2 = f;  // Copy constructor
+    FragTrap f2 = f;
     f2.attack("Monster2");
 
     return 0;
