@@ -1,11 +1,11 @@
-NAME1 = animal
+NAME1 = brain
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+FILES = main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp
 
-OBJCT = main.o Animal.o Dog.o Cat.o WrongAnimal.o WrongCat.o
+OBJCT = main.o AAnimal.o Dog.o Cat.o Brain.o
 
 all: $(NAME1)
 

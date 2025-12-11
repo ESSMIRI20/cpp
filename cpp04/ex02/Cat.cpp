@@ -5,23 +5,14 @@ Cat::Cat() : brain(new Brain()) {
     std::cout << "Cat default constructor called." << std::endl;
 }
 
-Cat::Cat(const Cat &c) : Animal(), brain(new Brain()) {
+Cat::Cat(const Cat &c) : AAnimal(), brain(new Brain()) {
     std::cout << "Cat copy constructor called." << std::endl;
     *this = c; // deep copy via assignment operator
 }
 
-/*
-0x133 ="dddd"
-Cat c(ox133)
-Cat x = c;
-
-0x13355="dddd"
-x(0x13355)
-delete x
-*/
 Cat &Cat::operator=(const Cat &c) {
     if (this != &c) {
-        Animal::operator=(c);      // copy base class members
+        AAnimal::operator=(c);      // copy base class members
         *brain = *(c.brain);       // deep copy Brain
     }
     std::cout << "Cat copy assignment called." << std::endl;
@@ -33,7 +24,7 @@ Cat::~Cat() {
     std::cout << "Cat destructor called." << std::endl;
 }
 
-void Cat::makeSound() {
+void Cat::makeSound() const{
     std::cout << "Meow! Meow!" << std::endl;
 }
 

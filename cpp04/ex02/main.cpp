@@ -4,11 +4,8 @@
 
 int main()
 {
-    Dog l;
-    Dog l1 = l;
-    return (0);
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+    const AAnimal* j = new Dog();
+    const AAnimal* i = new Cat();
 
     std::cout << std::endl;
 
