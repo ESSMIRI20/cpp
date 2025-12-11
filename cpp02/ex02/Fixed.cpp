@@ -1,5 +1,4 @@
 #include "Fixed.hpp"
-#include <cmath>
 
 const int Fixed::fractional_bits = 8;
 
@@ -49,19 +48,29 @@ bool Fixed::operator==(const Fixed &f) const { return fixed_point == f.fixed_poi
 bool Fixed::operator!=(const Fixed &f) const { return fixed_point != f.fixed_point; }
 
 Fixed Fixed::operator+(const Fixed &f) const {
-    return Fixed(this->toFloat() + f.toFloat());
+    Fixed d;
+    d.setRawBits(this->fixed_point + f.fixed_point);
+    return d;
 }
 
 Fixed Fixed::operator-(const Fixed &f) const {
-    return Fixed(this->toFloat() - f.toFloat());
+     Fixed d;
+    d.setRawBits(this->fixed_point - f.fixed_point);
+    return d;
 }
 
 Fixed Fixed::operator*(const Fixed &f) const {
-    return Fixed(this->toFloat() * f.toFloat());
+    Fixed d;
+    long int x = this->fixed_point * f.fixed_point;
+    d.setRawBits((int)x >> f.fractional_bits);
+    return d;
 }
 
 Fixed Fixed::operator/(const Fixed &f) const {
-    return Fixed(this->toFloat() / f.toFloat());
+    Fixed d;
+    long int x = this->fixed_point << f.fractional_bits;
+    d.setRawBits(x / f.fixed_point);
+    return d;
 }
 
 Fixed& Fixed::operator++() {
