@@ -3,9 +3,9 @@ NAME1 = bureaucrat
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-FILES = main.cpp Bureaucrat.cpp
+FILES = Bureaucrat.cpp main.cpp
 
-OBJCT = main.o Bureaucrat.o
+OBJCT = Bureaucrat.o main.o
 
 all: $(NAME1)
 

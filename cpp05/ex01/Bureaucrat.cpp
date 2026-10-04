@@ -1,77 +1,53 @@
 #include "Bureaucrat.hpp"
-
-// Default constructor
+#include "Form.hpp"
 Bureaucrat::Bureaucrat() : name("Default"), grade(1) {
     std::cout << "Default constructor called" << std::endl;
 }
 
-// Parameterized constructor
-Bureaucrat::Bureaucrat(const std::string& name, int grade)
-    : name(name)
-{
-    if (grade < 1)
+Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name) {
+     if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)
         throw GradeTooLowException();
     this->grade = grade;
-    std::cout << "Parameterized constructor called" << std::endl;
+    std::cout << "Parameterized constructor called" << std::endl;    
 }
 
-// Copy constructor
-Bureaucrat::Bureaucrat(const Bureaucrat& b)
-    : name(b.name), grade(b.grade)
+Bureaucrat::Bureaucrat(const Bureaucrat& b): name(b.name), grade(b.grade)
 {
     std::cout << "Copy constructor called" << std::endl;
 }
 
-// Destructor
-Bureaucrat::~Bureaucrat() {
+Bureaucrat::~Bureaucrat(){
     std::cout << "Destructor called" << std::endl;
 }
 
-// Assignment operator
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b) {
-    if (this != &b)
-        this->grade = b.grade; // name is const
-    return *this;
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &b)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    if (this == &b)
+        grade = b.grade;
+    return (*this);
 }
 
-// Getters
-const std::string& Bureaucrat::getName() const {
-    return name;
+const std::string Bureaucrat::getName() const{
+    return (name);
 }
 
-int Bureaucrat::getGrade() const {
-    return grade;
+int Bureaucrat::getGrade() const{
+    return (grade);
 }
 
-// Increment grade (higher rank)
-void Bureaucrat::incrementGrade() {
+void Bureaucrat::increment_grade(){
     if (grade <= 1)
-        throw GradeTooHighException();
+        throw Bureaucrat::GradeTooHighException();
     grade--;
 }
 
-// Decrement grade (lower rank)
-void Bureaucrat::decrementGrade() {
+void Bureaucrat::dencrement_grade(){
     if (grade >= 150)
-        throw GradeTooLowException();
+        throw Bureaucrat::GradeTooLowException();
     grade++;
-}
-
-// Exceptions
-const char* Bureaucrat::GradeTooHighException::what() const throw() {
-    return "Grade too high";
-}
-
-const char* Bureaucrat::GradeTooLowException::what() const throw() {
-    return "Grade too low";
-}
-
-// Operator <<
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
-    os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
-    return os;
 }
 
 void Bureaucrat::signForm(Form& f)
@@ -85,4 +61,9 @@ void Bureaucrat::signForm(Form& f)
                   << f.getName() << " because "
                   << e.what() << std::endl;
     }
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b){
+    os << b.getName() << ", bureaucrat grade " << b.getGrade() << "." << std::endl;
+    return (os);
 }

@@ -3,17 +3,13 @@
 
 int main()
 {
-    Bureaucrat boss("Boss", 1);
-    Bureaucrat intern("Intern", 150);
-
-    Form contract("Contract", 50, 20);
-
-    std::cout << contract << std::endl;
-
-    intern.signForm(contract);   // should fail
-    boss.signForm(contract);     // should succeed
-
-    std::cout << contract << std::endl;
-
-    return 0;
+    try{
+        Form f("form", 1, 1);
+        Bureaucrat b("test2", 2);
+        b.signForm(f);
+    }
+    catch(std::exception &e){
+        std::cout << e.what() << std::endl;
+    }
+    return (0);
 }

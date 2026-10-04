@@ -3,9 +3,9 @@ NAME1 = form
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-FILES = main.cpp Bureaucrat.cpp Form.cpp
+FILES = Bureaucrat.cpp main.cpp Form.cpp
 
-OBJCT = main.o Bureaucrat.o Form.o
+OBJCT = Bureaucrat.o main.o Form.o
 
 all: $(NAME1)
 

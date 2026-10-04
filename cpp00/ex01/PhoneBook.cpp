@@ -13,15 +13,15 @@ void PhoneBook::add()
     std::string fn, ln, nn, pn, ds;
 
     std::cout << "Enter First Name: ";
-    if (!std::getline(std::cin, fn)) exit(0);
+    if (!std::getline(std::cin, fn)) return;
     std::cout << "Enter Last Name: ";
-    if (!std::getline(std::cin, ln)) exit(0);
+    if (!std::getline(std::cin, ln)) return;
     std::cout << "Enter Nickname: ";
-    if (!std::getline(std::cin, nn)) exit(0);
+    if (!std::getline(std::cin, nn)) return;
     std::cout << "Enter Phone Number: ";
-    if (!std::getline(std::cin, pn)) exit(0);
+    if (!std::getline(std::cin, pn)) return;
     std::cout << "Enter Darkest Secret: ";
-    if (!std::getline(std::cin, ds)) exit(0);
+    if (!std::getline(std::cin, ds)) return;
 
     if (fn.empty() || ln.empty() || nn.empty() || pn.empty() || ds.empty())
     {
@@ -49,7 +49,7 @@ void PhoneBook::search()
 
     std::cout << "Enter index to view details: ";
     std::string input;
-    if (!std::getline(std::cin, input)) exit(0);
+    if (!std::getline(std::cin, input)) return;
     if (input.length() == 1 && std::isdigit(input[0]))
     {
         int idx = input[0] - '0';
